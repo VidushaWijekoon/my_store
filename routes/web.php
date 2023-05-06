@@ -31,8 +31,6 @@ Route::prefix('admin/')->middleware('auth', 'isAdmin')->group(function () {
 
     // Category
     Route::get('category', [CategoryController::class, 'index'])->name('category.index');
+    Route::get('category/create', [CategoryController::class, 'create'])->name('category.create');
+    Route::post('category', [CategoryController::class, 'store'])->name('category.store');
 });
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

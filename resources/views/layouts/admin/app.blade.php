@@ -17,25 +17,22 @@
     <link
         href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,600,600i,700,700i|Satisfy|Comic+Neue:300,300i,400,400i,700,700i"
         rel="stylesheet">
-
-
-    <!-- Template Main CSS File -->
-    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('admin/css/style.css') }}">
     @include('libraries.admin.styles')
+    @livewireStyles
 </head>
 
 <body>
 
     @include('components.admin.navbar')
     @include('components.admin.aside')
+
     <main id="main" class="main">
         @yield('content')
     </main>
-    @include('components.admin.footer')
-
-
 
     @include('libraries.admin.scripts')
+    @livewireScripts
 </body>
 
 </html>
