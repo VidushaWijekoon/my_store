@@ -1,9 +1,9 @@
 <?php
 
+use App\Http\Controllers\Admin\CatergoryController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 
 /*
@@ -30,7 +30,7 @@ Route::prefix('admin/')->middleware('auth', 'isAdmin')->group(function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 
     // Category
-    Route::get('category', [CategoryController::class, 'index'])->name('category.index');
-    Route::get('category/create', [CategoryController::class, 'create'])->name('category.create');
-    Route::post('category', [CategoryController::class, 'store'])->name('category.store');
+    Route::get('category', [CatergoryController::class, 'index'])->name('category.index');
+    Route::get('category/create', [CatergoryController::class, 'create'])->name('category.create');
+    Route::post('category', [CatergoryController::class, 'store'])->name('category.store');
 });
