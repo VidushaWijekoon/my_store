@@ -18,9 +18,7 @@
                     <p class="text-primary mb-0 hover-cursor">Analytics</p>
                 </div>
             </div>
-            <div class="d-flex justify-content-between align-items-end flex-wrap">
-                <a href="{{ route('category.index') }}" class="btn btn-primary mt-2 mt-xl-0">Categories</a>
-            </div>
+
         </div>
     </div>
 </div>

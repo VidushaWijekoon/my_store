@@ -36,12 +36,12 @@
             </a>
             <ul id="products" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="#">
+                    <a href="{{ route('product.create') }}">
                         <i class="fa-regular fa-circle"></i><span>Add Products</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="{{ route('product.index') }}">
                         <i class="fa-regular fa-circle"></i><span>View Products</span>
                     </a>
                 </li>
