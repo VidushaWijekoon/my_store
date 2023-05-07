@@ -30,7 +30,11 @@ Route::prefix('admin/')->middleware('auth', 'isAdmin')->group(function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 
     // Category
-    Route::get('category', [CatergoryController::class, 'index'])->name('category.index');
-    Route::get('category/create', [CatergoryController::class, 'create'])->name('category.create');
-    Route::post('category', [CatergoryController::class, 'store'])->name('category.store');
+    Route::controller(CatergoryController::class)->group(function () {
+        Route::get('/category/', 'index')->name('category.index');
+        Route::get('/category/create/', 'create')->name('category.create');
+        Route::post('/category/', 'store')->name('category.store');
+        Route::get('/category/{category}/edit', 'edit')->name('category.edit');
+        Route::put('/category/{category}', 'update')->name('category.update');
+    });
 });
