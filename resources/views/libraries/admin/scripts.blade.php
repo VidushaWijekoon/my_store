@@ -13,6 +13,7 @@
 <script src="{{ asset('vendor/quill/quill.min.js') }}"></script>
 <script src="{{ asset('vendor/simple-datatables/simple-datatables.js') }}"></script>
 <script src="{{ asset('vendor/tinymce/tinymce.min.js') }}"></script>
+<script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
 
 <!-- Template Main JS File -->
 <script src="{{ asset('admin/js/main.js') }}"></script>

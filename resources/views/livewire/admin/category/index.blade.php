@@ -71,7 +71,7 @@
 
 @push('script')
 <script>
-    window.AddEventListener('close-modal', event => {
+    window.addEventListener('close-modal', event => {
             $('#deleteCategory').modal('hide')
         });
 </script>
