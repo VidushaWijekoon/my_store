@@ -1,10 +1,10 @@
 <!-- Modal -->
-<div wire:ignore.self class="modal fade" id="deleteCategory" tabindex="-1" aria-labelledby="exampleModalLabel"
+<div wire:ignore.self class="modal fade" id="deleteCategory" tabindex="-1" aria-labelledby="deleteCategory"
     aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                <h1 class="modal-title fs-5" id="deleteCategory">Modal title</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form wire:submit.prevent="destroyCategory">
@@ -52,7 +52,7 @@
                                 <a href="{{ url('admin/category/' . $category->id . '/edit') }}">
                                     <i class="fa-solid fa-eye text-info"></i>
                                 </a>
-                                <a href="#" wire:click="deleteCategory({{$category->id}})" data-bs-toggle="modal"
+                                <a href="#" wire:click="deleteCategory({{ $category->id }}" data-bs-toggle=" modal"
                                     data-bs-target="#deleteCategory">
                                     <i class="fa-solid fa-trash text-danger"></i>
                                 </a>
@@ -71,8 +71,8 @@
 
 @push('script')
 <script>
-    window.addEventListener('close-modal', event => (
-            $('#deleteCategory').modal('hide');
-        ))
+    window.AddEventListener('close-modal', event => {
+            $('#deleteCategory').modal('hide')
+        });
 </script>
 @endpush

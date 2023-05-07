@@ -49,22 +49,11 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link collapsed" data-bs-target="#brands" data-bs-toggle="collapse" href="#">
-                <i class="fa-brands fa-bandcamp"></i><span>Brands</span><i class="fa-solid fa-chevron-down ms-auto"></i>
+            <a class="nav-link collapsed" href="{{ route('brands') }}">
+                <i class="fa-brands fa-bandcamp"></i>
+                <span>Brands</span>
             </a>
-            <ul id="brands" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                <li>
-                    <a href="#">
-                        <i class="fa-regular fa-circle"></i><span>Add Brands</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa-regular fa-circle"></i><span>View Brands</span>
-                    </a>
-                </li>
-            </ul>
-        </li>
+        </li><!-- End Error 404 Page Nav -->
 
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#users" data-bs-toggle="collapse" href="#">
@@ -85,7 +74,8 @@
         <li class="nav-item">
             <a class="nav-link collapsed" href="{{ route('register') }}"><i class="fa-solid fa-newspaper"></i>{{
                 __('Register') }}</a>
-        </li><!-- End Register Page Nav -->
+        </li>
+        <!-- End Register Page Nav -->
 
         <li class="nav-item">
             <a class="nav-link collapsed" href="{{ route('logout') }}"
