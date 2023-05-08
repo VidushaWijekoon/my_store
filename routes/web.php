@@ -44,6 +44,11 @@ Route::prefix('admin/')->middleware('auth', 'isAdmin')->group(function () {
         Route::get('/products', 'index')->name('product.index');
         Route::get('/products/create', 'create')->name('product.create');
         Route::post('/products', 'store')->name('product.store');
+        Route::get('/products/{product}/edit', 'edit')->name('product.edit');
+        Route::put('/products/{product}/', 'update')->name('product.update');
+
+        Route::get('/products/{product_id}/delete', 'destroy')->name('product.delete');
+        Route::get('product-image/{product_image_id}/delete', 'destroyImage')->name('product.deleteImage');
     });
 
     Route::get('/brands', App\Http\Livewire\Admin\Brand\Index::class)->name('brands');

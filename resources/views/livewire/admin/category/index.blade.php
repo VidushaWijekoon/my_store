@@ -52,7 +52,7 @@
                                 <a href="{{ url('admin/category/' . $category->id . '/edit') }}">
                                     <i class="fa-solid fa-eye text-info"></i>
                                 </a>
-                                <a href="#" wire:click="deleteCategory({{ $category->id }}" data-bs-toggle=" modal"
+                                <a href="#" wire:click="deleteCategory({{ $category->id }}" data-bs-toggle="modal"
                                     data-bs-target="#deleteCategory">
                                     <i class="fa-solid fa-trash text-danger"></i>
                                 </a>
@@ -68,7 +68,6 @@
         </div>
     </div>
 </div>
-
 @push('script')
 <script>
     window.addEventListener('close-modal', event => {
