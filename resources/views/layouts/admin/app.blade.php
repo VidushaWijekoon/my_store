@@ -31,9 +31,10 @@
         @yield('content')
     </main>
 
+    @yield('scripts')
     @include('libraries.admin.scripts')
     @livewireScripts
-    @stack('script')
+    @stack('scripts')
 </body>
 
 </html>
