@@ -50,10 +50,19 @@
 
         <li class="nav-item">
             <a class="nav-link collapsed" href="{{ route('brands') }}">
-                <i class="fa-brands fa-bandcamp"></i>
+                <i class="fa-solid fa-fill-drip"></i>
                 <span>Brands</span>
             </a>
-        </li><!-- End Error 404 Page Nav -->
+        </li>
+        <!-- End Error 404 Page Nav -->
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{ route('colors.index') }}">
+                <i class="fa-brands fa-bandcamp"></i>
+                <span>Colors</span>
+            </a>
+        </li>
+        <!-- End Error 404 Page Nav -->
 
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#users" data-bs-toggle="collapse" href="#">

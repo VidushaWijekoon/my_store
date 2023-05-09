@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\CatergoryController;
+use App\Http\Controllers\Admin\ColorController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -52,4 +53,13 @@ Route::prefix('admin/')->middleware('auth', 'isAdmin')->group(function () {
     });
 
     Route::get('/brands', App\Http\Livewire\Admin\Brand\Index::class)->name('brands');
+
+    Route::controller(ColorController::class)->group(function () {
+        Route::get('/colors', 'index')->name('colors.index');
+        Route::get('/colors/create', 'create')->name('colors.create');
+        Route::post('/colors/create', 'store')->name('colors.store');
+        Route::get('/colors/{color}/edit', 'edit')->name('colors.edit');
+        Route::put('/colors/{color}', 'update')->name('colors.update');
+        Route::get('/colors/{color}/delete', 'delete')->name('colors.delete');
+    });
 });
