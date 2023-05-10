@@ -290,6 +290,20 @@
                     alert(response.message);
                 }
             });
+
+            $(document).on('click', '.deleteProductColorBtn', function (){
+                var prod_color_id = $(this).val();
+                var thisClick = $(this);
+
+                $.ajax({
+                    type: "GET",
+                    url: "/admin/product-color/" + prod_color_id + "/delete",
+                    success: function(response){
+                        thisClick.closest('prod_color_id').remove();
+                        alert(response.message);
+                    }
+                });
+            });
         });
     });
 </script>

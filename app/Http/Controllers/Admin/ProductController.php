@@ -10,6 +10,7 @@ use App\Models\ProductImage;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
 use App\Http\Requests\ProductFormRequest;
+use App\Models\ProductColor;
 use Illuminate\Support\Facades\Request;
 
 class ProductController extends Controller
@@ -172,5 +173,12 @@ class ProductController extends Controller
         ]);
 
         return response()->json(['message' => 'Product Color Qty Updated']);
+    }
+
+    public function deleteProdColor($prod_color_id)
+    {
+        $prodColor = ProductColor::findOrFail($prod_color_id);
+        $prodColor->delete();
+        return response()->json(['message' => 'Product Color Qty Deleted']);
     }
 }

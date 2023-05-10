@@ -65,6 +65,14 @@
         <!-- End Error 404 Page Nav -->
 
         <li class="nav-item">
+            <a class="nav-link collapsed" href="{{ route('sliders.index') }}">
+                <i class="fa-solid fa-hill-rockslide"></i>
+                <span>Home Slider</span>
+            </a>
+        </li>
+        <!-- End Error 404 Page Nav -->
+
+        <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#users" data-bs-toggle="collapse" href="#">
                 <i class="fa-solid fa-users-gear"></i><span>Users</span><i class="fa-solid fa-chevron-down ms-auto"></i>
             </a>

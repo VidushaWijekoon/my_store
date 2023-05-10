@@ -9,21 +9,26 @@
         <div class="card">
             <div class="card-header">
                 <h4>
-                    Add Colors
-                    <a href="{{ route('colors.index') }}" class="btn btn-sm btn-warning text-white float-end">
+                    Add Slider
+                    <a href="{{ route('sliders.index') }}" class="btn btn-sm btn-warning text-white float-end">
                         Back</a>
                 </h4>
             </div>
             <div class="card-body">
-                <form action="{{ route('colors.create') }}" method="POST">
+                <form action="{{ route('sliders.create') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3">
-                        <label for="">Color Name</label>
-                        <input type="text" name="name" class="form-control form-control-sm">
+                        <label for="">Title</label>
+                        <input type="text" name="title" class="form-control form-control-sm">
                     </div>
                     <div class="mb-3">
-                        <label for="">Color Code</label>
-                        <input type="text" name="code" class="form-control form-control-sm">
+                        <label for="">Description</label>
+                        <textarea type="text" name="description" class="form-control form-control-sm"
+                            rows="3"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="">Image</label><br>
+                        <input type="file" name="image" class="form-control form-control-sm">
                     </div>
                     <div class="mb-3">
                         <label for="">Status</label><br>
