@@ -17,22 +17,20 @@
     <link
         href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,600,600i,700,700i|Satisfy|Comic+Neue:300,300i,400,400i,700,700i"
         rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('admin/css/style.css') }}">
-    @include('libraries.admin.styles')
+    @include('libraries.frontend.styles')
     @livewireStyles
 </head>
 
 <body>
 
-    @include('components.admin.navbar')
-    @include('components.admin.aside')
+    @include('components.frontend.navbar')
 
     <main id="main" class="main">
         @yield('content')
     </main>
 
     @yield('scripts')
-    @include('libraries.admin.scripts')
+    @include('libraries.frontend.scripts')
     @livewireScripts
     @stack('scripts')
 </body>

@@ -89,6 +89,13 @@
         <li class="nav-heading">Pages</li>
 
         <li class="nav-item">
+            <a class="nav-link collapsed" href="{{ route('frontend.index') }}">
+                <i class="fa-solid fa-home"></i>
+                <span>Front Page</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
             <a class="nav-link collapsed" href="{{ route('register') }}"><i class="fa-solid fa-newspaper"></i>{{
                 __('Register') }}</a>
         </li>
