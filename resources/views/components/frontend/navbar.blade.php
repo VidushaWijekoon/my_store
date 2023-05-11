@@ -3,7 +3,10 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-2 my-auto d-none d-sm-none d-md-block d-lg-block">
-                    <h5 class="brand-name">Vidusha E-Commerce</h5>
+                    <a href="{{ route('frontend.index') }}" class="d-flex justify-content-center"
+                        style="text-decoration: none">
+                        <h5 class="brand-name">Vidusha E-Commerce</h5>
+                    </a>
                 </div>
                 <div class="col-md-5 my-auto">
                     <form role="search">
@@ -51,6 +54,11 @@
                                 <i class="fa fa-user"></i> {{ Auth::user()->name }}
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('dashboard.index') }}">
+                                        <i class="fa fa-user"></i> Dashboard
+                                    </a>
+                                </li>
                                 <li><a class="dropdown-item" href="#"><i class="fa fa-user"></i> Profile</a></li>
 
                                 <li><a class="dropdown-item" href="#"><i class="fa fa-list"></i> My Orders</a></li>
@@ -78,9 +86,6 @@
     </div>
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-            <a class="navbar-brand d-block d-sm-block d-md-none d-lg-none" href="#">
-                Funda Ecom
-            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -89,10 +94,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
+                        <a class="nav-link" href="{{ route('frontend.index') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">All Categories</a>
+                        <a class="nav-link" href="{{ route('frontend.categories') }}">All Categories</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">New Arrivals</a>

@@ -7,8 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title')</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
+    <meta content="@yield('meta_keyword')" name="keyword">
+    <meta content="@yield('meta_description')" name="description">
+    <meta content="" name="Vidusha Wijekoon">
     <!-- Favicons -->
     <link href="{{ asset('rtech/images/favicon.png') }}" rel="icon">
     <link href="{{ asset('rtech/images/favicon.png') }}" rel="apple-touch-icon">

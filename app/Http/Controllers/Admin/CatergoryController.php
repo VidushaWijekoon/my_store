@@ -30,12 +30,13 @@ class CatergoryController extends Controller
         $category->description = $validatedData['description'];
 
         if ($request->hasFile('image')) {
+            $uploadPath = 'uploads/category/';
             $file = $request->file('image');
             $ext = $file->getClientOriginalExtension();
-            $filename = time() . ' ' . $ext;
+            $filename = time() . '.' . $ext;
 
-            $file->move('uploads/category', $filename);
-            $category->image = $filename;
+            $file->move($uploadPath, $filename);
+            $category->image = $uploadPath . $filename;
         }
 
         $category->meta_title = $validatedData['meta_title'];
@@ -57,7 +58,7 @@ class CatergoryController extends Controller
     {
         $category = Category::findOrFail($category);
         $validatedData = $request->validated();
-
+        $uploadPath = 'uploads/category/';
         $category->name = $validatedData['name'];
         $category->slug = Str::slug($validatedData['slug']);
         $category->description = $validatedData['description'];
@@ -71,10 +72,10 @@ class CatergoryController extends Controller
 
             $file = $request->file('image');
             $ext = $file->getClientOriginalExtension();
-            $filename = time() . ' ' . $ext;
+            $filename = time() . '.' . $ext;
 
-            $file->move('uploads/category', $filename);
-            $category->image = $filename;
+            $file->move($uploadPath, $filename);
+            $category->image = $uploadPath . $filename;
         }
 
         $category->meta_title = $validatedData['meta_title'];

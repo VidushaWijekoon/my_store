@@ -49,7 +49,8 @@
                             <td>{{ $category->name }}</td>
                             <td>{{ $category->status == '1' ? 'Hidden' : 'Visible' }}</td>
                             <td>
-                                <a href="{{ url('admin/category/' . $category->id . '/edit') }}">
+                                <a href="{{ url('admin/category/' . $category->id . '/edit') }}"
+                                    style="text-decoration: none">
                                     <i class="fa-solid fa-eye text-info"></i>
                                 </a>
                                 <a href="#" wire:click="deleteCategory({{ $category->id }}" data-bs-toggle="modal"

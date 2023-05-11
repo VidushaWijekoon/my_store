@@ -27,10 +27,11 @@ use App\Http\Controllers\Frontend\FrontendController;
 
 Auth::routes();
 
-Route::get('/', [FrontendController::class, 'index'])->name('frontend.index');
-
-Route::get('/home', [HomeController::class, 'index'])->name('home');
-
+Route::controller(FrontendController::class)->group(function () {
+    Route::get('/', [FrontendController::class, 'index'])->name('frontend.index');
+    Route::get('/collections', [FrontendController::class, 'categories'])->name('frontend.categories');
+    Route::get('/collections/{category_slug}', [FrontendController::class, 'products'])->name('frontend.products');
+});
 
 Route::prefix('admin/')->middleware('auth', 'isAdmin')->group(function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index');

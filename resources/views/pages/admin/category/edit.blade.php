@@ -36,8 +36,7 @@
                         <div class="col-md-6 mb-3">
                             <label>Image</label>
                             <input type="file" name="image" class="form-control form-control-sm">
-                            <img src="{{ asset('uploads/category/'. $category->image) }}" width="60px" height="60px"
-                                alt="">
+                            <img src="{{ asset($category->image) }}" width="60px" height="60px" alt="">
                             @error('image') <small class="text-danger">{{ $message }}</small>@enderror
                         </div>
                         <div class="col-md-6 mb-3 mt-4">
