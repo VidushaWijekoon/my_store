@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Product;
 use App\Models\Slider;
 
 class FrontendController extends Controller
@@ -25,6 +26,22 @@ class FrontendController extends Controller
         $category = Category::where('slug', $category_slug)->first();
         if ($category) {
             return view('pages.frontend.collections.products.index', compact('category'));
+        } else {
+            return redirect()->back();
+        }
+    }
+
+    public function productsView(string $category_slug, string $product_slug)
+    {
+        $category = Category::where('slug', $category_slug)->first();
+        $product = $category->products()->where('slug', $product_slug)->where('status', '0')->first();
+
+        if ($category) {
+            if ($product) {
+                return view('pages.frontend.collections.products.view', compact('product', 'category'));
+            } else {
+                return redirect()->back();
+            }
         } else {
             return redirect()->back();
         }
