@@ -15,7 +15,6 @@
                     <div class="product-view">
                         <h4 class="product-name">
                             {{ $product->name }}
-                            <label class="label-stock bg-success">In Stock</label>
                         </h4>
                         <hr>
                         <p class="product-path">
@@ -26,11 +25,23 @@
                             <span class="original-price">${{ $product->original_price }}</span>
                         </div>
                         <div class="">
-                            @if ($product->productColors)
-                            @foreach ($product->productColors as $colorItem)
-                            <input type="radio" name="colorSelection" value="{{ $colorItem->id }}" /> {{
-                            $colorItem->color->name }}
+
+                            @if ($product->productColors->count() > 0) @if($product->productColors)
+                            @foreach ($product->productColors as $colorItems)
+                            <label for="" class="colorSelectionLabel" style="background: {{ $colorItem->color->code }}"
+                                wire:click='colorSelected({{ $colorItem->id }})'>
+                                {{ $colorItem->color->name }}
+                            </label>
+                            {{-- <input type="radio" name="colorItem" value="{{ $colorItem->id }}" /> --}}
+                            {{ $colorItem->color->name }}
                             @endforeach
+                            @endif
+                            @else
+                            @if($product->quantity)
+                            <label class="btn btn-sm bg-success my-2 text-white text-capitalize">in stock</label>
+                            @else
+                            <label class="btn btn-sm bg-danger my-2 text-white text-capitalize">out of stock</label>
+                            @endif
                             @endif
                         </div>
                         <div class="mt-2">
