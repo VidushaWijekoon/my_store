@@ -1,14 +1,7 @@
 <?php
 
-use App\Http\Controllers\Admin\CatergoryController;
-use App\Http\Controllers\Admin\ColorController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\ProductController;
-use App\Http\Controllers\Admin\SliderController;
-use App\Http\Controllers\Frontend\FrontendController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,62 +14,14 @@ use App\Http\Controllers\Frontend\FrontendController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Auth::routes();
 
-Route::controller(FrontendController::class)->group(function () {
-    Route::get('/', [FrontendController::class, 'index'])->name('frontend.index');
-    Route::get('/collections', [FrontendController::class, 'categories'])->name('frontend.categories');
-    Route::get('/collections/{category_slug}', [FrontendController::class, 'products'])->name('frontend.products');
-    Route::get('/collections/{category_slug}/{product_slug}', [FrontendController::class, 'productsView'])->name('frontend.productsView');
-});
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::prefix('admin/')->middleware('auth', 'isAdmin')->group(function () {
-    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
-
-    // Category
-    Route::controller(CatergoryController::class)->group(function () {
-        Route::get('/category/', 'index')->name('category.index');
-        Route::get('/category/create/', 'create')->name('category.create');
-        Route::post('/category/', 'store')->name('category.store');
-        Route::get('/category/{category}/edit', 'edit')->name('category.edit');
-        Route::put('/category/{category}', 'update')->name('category.update');
-    });
-
-    // Product
-    Route::controller(ProductController::class)->group(function () {
-        Route::get('/products', 'index')->name('product.index');
-        Route::get('/products/create', 'create')->name('product.create');
-        Route::post('/products', 'store')->name('product.store');
-        Route::get('/products/{product}/edit', 'edit')->name('product.edit');
-        Route::put('/products/{product}/', 'update')->name('product.update');
-
-        Route::get('/products/{product_id}/delete', 'destroy')->name('product.delete');
-        Route::get('product-image/{product_image_id}/delete', 'destroyImage')->name('product.deleteImage');
-        Route::get('product-color/{prod_color_id}/', 'updateProdColorQty');
-        Route::get('product-color/{prod_color_id}/', 'deleteProdColor');
-    });
-
-    Route::get('/brands', App\Http\Livewire\Admin\Brand\Index::class)->name('brands');
-
-    Route::controller(ColorController::class)->group(function () {
-        Route::get('/colors', 'index')->name('colors.index');
-        Route::get('/colors/create', 'create')->name('colors.create');
-        Route::post('/colors/create', 'store')->name('colors.store');
-        Route::get('/colors/{color}/edit', 'edit')->name('colors.edit');
-        Route::put('/colors/{color}', 'update')->name('colors.update');
-        Route::get('/colors/{color}/delete', 'delete')->name('colors.delete');
-    });
-
-    Route::controller(SliderController::class)->group(function () {
-        Route::get('/sliders', 'index')->name('sliders.index');
-        Route::get('/sliders/create', 'create')->name('sliders.create');
-        Route::post('/sliders/create', 'store')->name('sliders.store');
-        Route::get('/sliders/{slider}/edit', 'edit')->name('sliders.edit');
-        Route::put('/sliders/{slider}/', 'update')->name('sliders.update');
-        Route::get('/sliders/{slider}/delete', 'destory')->name('sliders.destory');
-    });
+Route::get('admin/dashboard', function () {
+    return view('pages.admin.dashboard');
 });
