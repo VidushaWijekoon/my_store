@@ -4,14 +4,15 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
         <li class="nav-item">
-            <a class="nav-link " href="index.html">
+            <a class="nav-link {{ '/' == request()->path() ? 'active' : '' }}" href="{{ route('dashboard.index') }}">
                 <i class="bi bi-grid"></i>
                 <span>Dashboard</span>
             </a>
         </li><!-- End Dashboard Nav -->
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="{{ route('category.index') }}">
+            <a class="nav-link {{ 'category' == request()->path() ? 'active' : '' }}"
+                href="{{ route('category.index') }}">
                 <i class="bi bi-menu-button-wide"></i>
                 <span>Categories</span>
             </a>
