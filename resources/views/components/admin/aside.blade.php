@@ -4,47 +4,37 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
         <li class="nav-item">
-            <a class="nav-link {{ '/' == request()->path() ? 'active' : '' }}" href="{{ route('dashboard.index') }}">
+            <a class="nav-link" href="{{ route('dashboard.index') }}">
                 <i class="bi bi-grid"></i>
                 <span>Dashboard</span>
             </a>
         </li><!-- End Dashboard Nav -->
 
         <li class="nav-item">
-            <a class="nav-link {{ 'category' == request()->path() ? 'active' : '' }}"
-                href="{{ route('category.index') }}">
-                <i class="bi bi-menu-button-wide"></i>
-                <span>Categories</span>
-            </a>
-        </li><!-- End Register Page Nav -->
-
-        <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-journal-text"></i><span>Forms</span><i class="bi bi-chevron-down ms-auto"></i>
+                <i class="bi bi-journal-text"></i><span>Category</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="forms-elements.html">
-                        <i class="bi bi-circle"></i><span>Form Elements</span>
+                    <a href="{{ route('category.create') }}">
+                        <i class="bi bi-circle"></i><span>Add Category</span>
                     </a>
                 </li>
                 <li>
-                    <a href="forms-layouts.html">
-                        <i class="bi bi-circle"></i><span>Form Layouts</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="forms-editors.html">
-                        <i class="bi bi-circle"></i><span>Form Editors</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="forms-validation.html">
-                        <i class="bi bi-circle"></i><span>Form Validation</span>
+                    <a href="{{ route('category.index') }}">
+                        <i class="bi bi-circle"></i><span>View Category</span>
                     </a>
                 </li>
             </ul>
-        </li><!-- End Forms Nav -->
+        </li>
+        <!-- End Forms Nav -->
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('brands') }}">
+                <i class="bi bi-menu-button-wide"></i>
+                <span>Brands</span>
+            </a>
+        </li><!-- End Register Page Nav -->
 
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
@@ -120,12 +110,6 @@
             </a>
         </li><!-- End Profile Page Nav -->
 
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="pages-faq.html">
-                <i class="bi bi-question-circle"></i>
-                <span>F.A.Q</span>
-            </a>
-        </li><!-- End F.A.Q Page Nav -->
 
         <li class="nav-item">
             <a class="nav-link collapsed" href="pages-contact.html">
