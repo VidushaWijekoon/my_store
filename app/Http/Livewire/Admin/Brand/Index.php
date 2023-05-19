@@ -11,7 +11,7 @@ class Index extends Component
 {
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
-    public $name, $slug, $status, $brand_id;
+    public $name, $slug, $status, $brand_id; // if we use livewire prefer method we need to assign values into variables
 
     public function rules()
     {
@@ -28,7 +28,7 @@ class Index extends Component
         $this->name = NULL;
         $this->slug = NULL;
         $this->status = NULL;
-        $this->brand_id = NULL;
+        $this->brand_id = NULL; // after delete the any id need to reset the form values 
     }
 
     public function storeBrand()
