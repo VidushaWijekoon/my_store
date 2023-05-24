@@ -34,7 +34,16 @@
                 <i class="bi bi-menu-button-wide"></i>
                 <span>Brands</span>
             </a>
-        </li><!-- End Register Page Nav -->
+        </li>
+
+        <!-- End Register Page Nav -->
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('colors.index') }}">
+                <i class="bi bi-paint-bucket"></i>
+                <span>Color</span>
+            </a>
+        </li>
+        <!-- End Register Page Nav -->
 
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
