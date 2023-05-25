@@ -24,7 +24,7 @@
                         <input type="text" name="code" class="form-control form-control-sm">
                     </div>
                     <div class="mb-3">
-                        <label for="">Name</label>
+                        <label for="">Status</label>
                         <input type="checkbox" name="status">Checked=Hidden, Unchecked=Visible
                     </div>
                     <div class="mb-3">

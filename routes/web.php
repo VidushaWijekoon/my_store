@@ -4,6 +4,8 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ColorController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Frontend\FrontendController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -18,9 +20,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [FrontendController::class, 'index'])->name('homepage.index');
 
 Auth::routes();
 
@@ -50,6 +50,8 @@ Route::prefix('admin')->middleware('auth', 'isAdmin')->group(function () {
         Route::get('/products/{product_id}/delete', 'destroy')->name('products.destroy');
 
         Route::get('/product-image/{product_image_id}/delete', 'destroyImage')->name('products.destroyImage');
+
+        Route::post('product-color/{prod_color_id}', 'updateProductColorQty')->name('product.update_product_color_qty');
     });
 
     Route::controller(ColorController::class)->group(function () {
@@ -59,5 +61,14 @@ Route::prefix('admin')->middleware('auth', 'isAdmin')->group(function () {
         Route::get('/colors/{color}/edit', 'edit')->name('colors.edit');
         Route::put('/colors/{color_id}/', 'update')->name('colors.update');
         Route::get('/colors/{color_id}/delete', 'destroy')->name('colors.destroy');
+    });
+
+    Route::controller(SliderController::class)->group(function () {
+        Route::get('/sliders', 'index')->name('sliders.index');
+        Route::get('/sliders/create', 'create')->name('sliders.create');
+        Route::post('/sliders/create', 'store')->name('sliders.store');
+        Route::get('/sliders/{slider}/edit', 'edit')->name('sliders.edit');
+        Route::put('/sliders/{slider}/', 'update')->name('sliders.update');
+        Route::get('/sliders/{slider}/delete', 'destroy')->name('sliders.destroy');
     });
 });

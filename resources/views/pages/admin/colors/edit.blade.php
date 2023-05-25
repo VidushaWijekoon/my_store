@@ -25,7 +25,7 @@
                         <input type="text" name="code" value="{{ $color->code }}" class="form-control form-control-sm">
                     </div>
                     <div class="mb-3">
-                        <label for="">Name</label>
+                        <label for="">Status</label>
                         <input type="checkbox" name="status" {{ $color->status ? 'checked' : '' }}>Checked=Hidden,
                         Unchecked=Visible
                     </div>

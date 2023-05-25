@@ -6,25 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('title')</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
-    @include('libraries.admin.styles')
+    @include('libraries.frontend.styles')
     @livewireStyles
 </head>
 
 <body>
 
-    @include('components.admin.navbar')
-    @include('components.admin.aside')
+    @include('components.frontend.navbar')
 
     <main id="main" class="main">
         @yield('content')
     </main>
 
     @yield('scripts')
-    @include('libraries.admin.scripts')
+    @include('components.frontend.footer')
+    @include('libraries.frontend.scripts')
     @livewireScripts
     @stack('script')
 </body>
