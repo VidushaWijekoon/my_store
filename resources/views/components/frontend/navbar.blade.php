@@ -84,10 +84,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
+                        <a class="nav-link" href="{{ route('frontend.homepage.index') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">All Categories</a>
+                        <a class="nav-link" href="{{ route('frontend.categories.index') }}">All Categories</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">New Arrivals</a>

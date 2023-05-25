@@ -77,7 +77,7 @@
                                 <label for="">Product Brand</label>
                                 <select name="brand" id="" class="form-control form-control-sm form-select">
                                     @foreach ($brands as $brand)
-                                    <option value="{{ $brand->id }}">{{ $brand->name }}</option>
+                                    <option value="{{ $brand->name }}">{{ $brand->name }}</option>
                                     @endforeach
                                 </select>
                                 @error('brand')<small>{{ $message }}</small> @enderror

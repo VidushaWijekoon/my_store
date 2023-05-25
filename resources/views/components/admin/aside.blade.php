@@ -77,7 +77,7 @@
 
         <li class="nav-heading">Pages</li>
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('homepage.index') }}">
+            <a class="nav-link" href="{{ route('frontend.homepage.index') }}">
                 <i class="fa-solid fa-home"></i>
                 <span>Front Home Page</span>
             </a>

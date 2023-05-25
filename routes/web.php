@@ -20,7 +20,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [FrontendController::class, 'index'])->name('homepage.index');
+Route::controller(FrontendController::class)->group(function () {
+    Route::get('/',  'index')->name('frontend.homepage.index');
+    Route::get('/collections',  'categories')->name('frontend.categories.index');
+    Route::get('/collections/{category_slug}/',  'products')->name('frontend.products.index');
+});
 
 Auth::routes();
 

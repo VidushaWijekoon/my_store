@@ -7,8 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title')</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
+    <meta name="keywords" content="@yield('meta_keyword')">
+    <meta name="description" content="@yield('meta_description')">
+    <meta name="author" content="Vidusha Wijekoon">
 
     @include('libraries.frontend.styles')
     @livewireStyles

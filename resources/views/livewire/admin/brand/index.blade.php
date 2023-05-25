@@ -10,12 +10,13 @@
                     </h4>
                 </div>
                 <div class="card-body">
-                    <table class="table table-bordered table-striped">
+                    <table class="table table-bordered table-striped mt-4">
                         <thead>
                             <tr>
                                 <td>ID</td>
                                 <td>Name</td>
                                 <td>Slug</td>
+                                <td>Category</td>
                                 <td>Status</td>
                                 <td>Action</td>
                             </tr>
@@ -24,8 +25,15 @@
                             @forelse ($brands as $brand)
                             <tr>
                                 <td>{{ $brand->id }}</td>
-                                <td>{{ $brand->name }}</td>
-                                <td>{{ $brand->slug }}</td>
+                                <td>{{ ucfirst($brand->name) }}</td>
+                                <td>{{ ucfirst($brand->slug) }}</td>
+                                <td>
+                                    @if ($brand->category)
+                                    {{ ucfirst($brand->category->name) }}
+                                    @else
+                                    <span>No Category</span>
+                                    @endif
+                                </td>
                                 <td>{{ $brand->status == '1' ? 'Hidden' : 'Visible' }}</td>
                                 <td>
                                     <a href="#" wire:click="editBrand({{ $brand->id }})" class="btn btn-sm btn-primary"

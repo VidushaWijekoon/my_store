@@ -10,27 +10,42 @@
             </div>
             <form wire:submit.prevent="storeBrand">
                 <div class="modal-body">
+
+                    <div class="mb-3">
+                        <label for="">Select Category</label>
+                        <select wire:model.defer="category_id" class="form-control form-control-sm">
+                            <option>--Select Category--</option>
+                            @foreach ($categories as $category)
+                            <option value="{{ $category->id }}">{{ $category->name
+                                }}</option>
+                            @endforeach
+                        </select>
+                        @error('category_id') <small class="text-danger">{{ $message }}</small> @enderror
+                    </div>
+
                     <div class="mb-3">
                         <label for="">Brand Name</label>
                         <input type="text" wire:model.defer="name" class="form-control form-control-sm">
                         @error('name') <small class="text-danger">{{ $message }}</small> @enderror
-
                     </div>
+
                     <div class="mb-3">
                         <label for="">Brand Slug</label>
                         <input type="text" wire:model.defer="slug" class="form-control form-control-sm">
                         @error('slug') <small class="text-danger">{{ $message }}</small> @enderror
                     </div>
+
                     <div class="mb-3">
                         <label for="">Brand Name</label>
                         <input type="checkbox" wire:model.defer="status" /> Checked=Hidden UnChecked=Visible
                         @error('status') <small class="text-danger">{{ $message }}</small> @enderror
                     </div>
+
                 </div>
                 <div class="modal-footer">
-                    <button type="button" wire:click="closeModal" class="btn btn-secondary"
+                    <button type="button" wire:click="closeModal" class="btn btn-secondary btn-sm"
                         data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save changes</button>
+                    <button type="submit" class="btn btn-primary btn-sm">Save changes</button>
                 </div>
             </form>
         </div>
@@ -57,27 +72,42 @@
             <div wire:loading.remove class="">
                 <form wire:submit.prevent="updateBrand">
                     <div class="modal-body">
+
+                        <div class="mb-3">
+                            <label for="">Select Category</label>
+                            <select wire:model.defer="category_id" class="form-control form-control-sm">
+                                <option>--Select Category--</option>
+                                @foreach ($categories as $category)
+                                <option value="{{ $category->id }}">{{ $category->name
+                                    }}</option>
+                                @endforeach
+                            </select>
+                            @error('category_id') <small class="text-danger">{{ $message }}</small> @enderror
+                        </div>
+
                         <div class="mb-3">
                             <label for="">Brand Name</label>
                             <input type="text" wire:model.defer="name" class="form-control form-control-sm">
                             @error('name') <small class="text-danger">{{ $message }}</small> @enderror
-
                         </div>
+
                         <div class="mb-3">
                             <label for="">Brand Slug</label>
                             <input type="text" wire:model.defer="slug" class="form-control form-control-sm">
                             @error('slug') <small class="text-danger">{{ $message }}</small> @enderror
                         </div>
+
                         <div class="mb-3">
                             <label for="">Brand Name</label>
                             <input type="checkbox" wire:model.defer="status" /> Checked=Hidden UnChecked=Visible
                             @error('status') <small class="text-danger">{{ $message }}</small> @enderror
                         </div>
+
                     </div>
                     <div class="modal-footer">
-                        <button type="button" wire:click="closeModal" class="btn btn-secondary"
+                        <button type="button" wire:click="closeModal" class="btn btn-secondary btn-sm"
                             data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Update changes</button>
+                        <button type="submit" class="btn btn-primary btn-sm">Update changes</button>
                     </div>
                 </form>
             </div>
@@ -109,9 +139,9 @@
                         <h4>Are you sure you want to delete this data</h4>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" wire:click="closeModal" class="btn btn-secondary"
+                        <button type="button" wire:click="closeModal" class="btn btn-secondary btn-sm"
                             data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Update changes</button>
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                     </div>
                 </form>
             </div>
