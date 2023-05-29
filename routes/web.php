@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Frontend\FrontendController;
+use App\Http\Controllers\Frontend\WishlistController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -25,6 +26,10 @@ Route::controller(FrontendController::class)->group(function () {
     Route::get('/collections',  'categories')->name('frontend.categories.index');
     Route::get('/collections/{category_slug}/',  'products')->name('frontend.products.index');
     Route::get('/collections/{category_slug}/{product_slug}',  'productView')->name('frontend.product.productView');
+});
+
+Route::controller(WishlistController::class)->group(function () {
+    Route::get('/wishlist',  'index')->name('wishlist');
 });
 
 Auth::routes();
